@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 id="wynik">WYNIK</h3>
+    <div class="slider">
+        <div class="slidecontainer">
+            <br>R:<input type="range" min="0" max="255" value="255" class="slider" id="r">
+          </div>
+          <div class="slidecontainer">
+            <br>G:<input type="range" min="0" max="255" value="255" class="slider" id="g">
+          </div>
+          <div class="slidecontainer">
+            <br>B:<input type="range" min="0" max="255" value="255" class="slider" id="b">
+          </div>
+          
+    </div>
+
+    <script>
+        /*
+			Zmiana ustawionej wartości na DOWOLNYM suwaku, powoduje
+			odczytanie aktualnych wartości na WSZYSTKICH suwakach
+			i ustawienie składowych R G B koloru tła zgodnie z tymi odczytami.
+		*/
+		const body=document.querySelector('body');
+		
+		const wynik=document.querySelector('#wynik');
+		
+		const r=document.querySelector('#r');
+		const g=document.querySelector('#g');
+		const b=document.querySelector('#b');
+		
+		let red=0; let green=0; let blue=0;
+		
+		r.addEventListener("input", function(){
+            red=r.value; green=g.value; blue=b.value;
+			wynik.innerHTML=red;
+			body.style.backgroundColor='rgb('+red+','+green+','+blue+')';
+		});
+		
+		g.addEventListener("input", function(){
+            red=r.value; green=g.value; blue=b.value;
+			wynik.innerHTML=green;
+			body.style.backgroundColor='rgb('+red+','+green+','+blue+')';
+		});
+		
+		b.addEventListener("input", function(){
+            red=r.value; green=g.value; blue=b.value;
+			wynik.innerHTML=blue;
+			body.style.backgroundColor='rgb('+red+','+green+','+blue+')';
+		});
+    </script>
+</body>
+</html>
